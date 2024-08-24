@@ -14,13 +14,21 @@ const createJestConfig = nextJest({
 const config = {
   clearMocks: true,
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.ts(x)?'],
+  collectCoverageFrom: [
+    'src/**/*.ts(x)?',
+    '!src/app/**',
+    '!src/lib/registry.tsx',
+    '!src/types/**',
+    '!src/styles/**',
+  ],
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
+    '^styled-components':
+      'styled-components/dist/styled-components.browser.cjs.js',
   },
 }
 
