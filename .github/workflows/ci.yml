@@ -3,22 +3,22 @@ on: [push, pull_request]
 
 jobs:
   build:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v3
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 20.x
-        cache: 'npm'
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+          cache: 'npm'
 
-    - name: Linting
-      run: npm run linting
+      - name: Linting
+        run: npm run linting
 
-    - name: Testing
-      run: npm run test
-    
-    - name: Build
-      run: npm run build
+      - name: Testing
+        run: npm run test
+      
+      - name: Build
+        run: npm run build
